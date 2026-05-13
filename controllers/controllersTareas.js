@@ -19,12 +19,19 @@ exports.listarTareas = (req, res) => {
     }
 };
 
+exports.crearTarea = (req, res) => {
+    // se crea la tarea  q se quiere agregar a la lista
+};
+
+
 
 exports.obtenerTareaId = (req, res) =>{
     // busca una tarea  por su id (mediante parametros de url)
-
-}
-
-exports.crearTarea = (req, res) => {
-    // se crea la tarea  q se quiere agregar a la lista
+    const id = parseInt(req.params.id);
+    const tarea = tareas.find(t => t.id === id);
+    if (tarea){
+        res.status(200).json(tarea);
+    } else {
+        res.status(404).json({error: 'Tarea no encontrada'})
+    }
 };
