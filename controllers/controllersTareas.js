@@ -20,8 +20,6 @@ exports.listarTareas = (req, res) => {
 };
 // tarea que  enlista  las tareas
 
-};
-
 
 // busca una tarea  por su id (mediante parametros de url)
 exports.obtenerTareaId = (req, res) =>{
