@@ -1,7 +1,7 @@
 // importaciones:libreria express para usar sus funciones de servidor y
 // el controlador donde esta la logica (de las tareas)
 const express = require('express');
-const tareasController = require('../controllers/contollersTareas');    
+const tareasController = require('../controllers/controllersTareas');    
 
 const router = express.Router();// objeto router para gestionar rutas 
 
