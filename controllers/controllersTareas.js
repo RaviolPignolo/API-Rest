@@ -3,9 +3,26 @@ const tareas = require('../models/modeloTareas');
 
 
 exports.listarTareas = (req, res) => {
-// tarea que  enlista  las tareas
-
+    try{
+        if(tareas.length == 0){
+            return res.status(200).json({
+                mensaje: "No hay tareas registradas en el sistema",
+                datos: []
+            });
+        }
+        res.json(tareas);      
+    } catch{
+        res.status(500).json({
+            mensaje: "Error al obtener las tareas",
+            error: error.message
+        });
+    }
 };
+
+exports.crearTarea = (req, res) => {
+    // se crea la tarea  q se quiere agregar a la lista
+};
+
 
 
 exports.obtenerTareaId = (req, res) =>{
@@ -17,8 +34,4 @@ exports.obtenerTareaId = (req, res) =>{
     } else {
         res.status(404).json({error: 'Tarea no encontrada'})
     }
-};
-
-exports.crearTarea = (req, res) => {
-    // se crea la tarea  q se quiere agregar a la lista
 };
